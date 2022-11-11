@@ -3,7 +3,6 @@ import * as SC from './FavoriteMovieList.style';
 import NoImg from '../../components/NoImg/sad-cat-15.jpg';
 
 export const FavoriteMovieList = ({ list }) => {
-  console.log(list);
   return (
     <SC.MovieList>
       {list.map(data => (

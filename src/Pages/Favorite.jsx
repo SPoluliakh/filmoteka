@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { FavoriteMovieList } from 'components/FavoriteMovieList/FavoriteMoviesList';
 
 export const Favorite = () => {
   const favorite = useRef('myFilms');
-  const [favoriteMovies, setFavoriteMovies] = useState(() => {
+  const [favoriteMovies] = useState(() => {
     const data = JSON.parse(localStorage.getItem(favorite.current));
 
     return data ?? [];
