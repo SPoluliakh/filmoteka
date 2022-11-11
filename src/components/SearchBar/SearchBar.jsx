@@ -33,8 +33,3 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
     </Box>
   );
 };
-
-//  border-radius: ${p => p.theme.radii.normal};
-// background-color: ${p => p.theme.colors.primary};
-// box-shadow: ${p => p.theme.shadows.boxShadow};
-// font-size: ${p => p.theme.fontSizes.m}px;

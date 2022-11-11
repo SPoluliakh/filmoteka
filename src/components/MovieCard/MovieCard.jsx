@@ -16,8 +16,6 @@ export const MovieCard = ({
   const { filmId } = useParams();
   const [isInFavorite, setIsInFavorite] = useState(false);
 
-  // console.log(location);
-
   useEffect(() => {
     const savedMovies = getLocalStorage(favorite.current);
     if (

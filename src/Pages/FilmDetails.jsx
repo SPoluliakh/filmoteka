@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { fetchById } from 'Utils/Fetch';
-import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { LinkTo } from 'components/Link/Link';
 import { Box } from 'components/Box';
