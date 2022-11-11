@@ -10,7 +10,7 @@ export const Cast = () => {
   const { filmId } = useParams();
 
   useEffect(() => {
-    fetchCast(filmId).then(setCastInfo);
+    fetchCast(filmId).then(setCastInfo).catch(console.log);
   }, [filmId]);
 
   if (!castInfo) return;

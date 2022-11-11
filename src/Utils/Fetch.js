@@ -37,7 +37,7 @@ export const fetchReview = async id => {
   const searchParams = new URLSearchParams({
     api_key: API_KEY,
   });
-  const url = `https:api.themoviedb.org/3/movie/${id}/reviews?${searchParams}`;
+  const url = `https://api.themoviedb.org/3//movie/${id}/reviews?${searchParams}`;
   const response = await axios.get(url);
   return response;
 };
