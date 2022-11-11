@@ -29,7 +29,6 @@ export const Cast = () => {
                     : NoImg
                 }
                 alt={name}
-                style={{ width: '200px' }}
               />
               <SC.CastInfoWrap>
                 <SC.CastInfoTitle> {name} </SC.CastInfoTitle>
