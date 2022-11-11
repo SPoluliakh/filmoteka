@@ -9,7 +9,7 @@ export const Review = () => {
   const { filmId } = useParams();
 
   useEffect(() => {
-    fetchReview(Number(filmId)).then(setReviewInfo).catch(console.log);
+    fetchReview(filmId).then(setReviewInfo).catch(console.log);
   }, [filmId]);
 
   if (!reviewInfo) return;
