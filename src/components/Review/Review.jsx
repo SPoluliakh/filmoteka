@@ -26,7 +26,7 @@ export const Review = () => {
           </SC.RevieWrap>
         ))
       ) : (
-        <NoInfoText>Sorry,there is no detail information yet.</NoInfoText>
+        <NoInfoText>Sorry, there is no detail information yet.</NoInfoText>
       )}
     </>
   );

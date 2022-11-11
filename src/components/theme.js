@@ -38,6 +38,7 @@ export const theme = Object.freeze({
     normal: '2px',
     round: '50%',
     sadVew: '18px',
+    ratingVew: '5px',
   },
   borders: {
     none: 'none',

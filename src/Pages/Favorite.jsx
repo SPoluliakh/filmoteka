@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { FavoriteMovieList } from 'components/FavoriteMovieList/FavoriteMoviesList';
+import { NoInfoText } from '../components/NoInfo/NoInfo';
 
 export const Favorite = () => {
   const favorite = useRef('myFilms');
@@ -14,7 +15,7 @@ export const Favorite = () => {
       {favoriteMovies.length > 0 ? (
         <FavoriteMovieList list={favoriteMovies} />
       ) : (
-        <div>Sorryyyyyy</div>
+        <NoInfoText> There is no favotite movies yet. </NoInfoText>
       )}
     </div>
   );

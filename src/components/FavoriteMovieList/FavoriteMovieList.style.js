@@ -11,6 +11,7 @@ export const MovieList = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  position: relative;
   flex-basis: calc(100% / 5 - ${p => p.theme.space[2]}px);
   margin-left: ${p => p.theme.space[2]}px;
   margin-top: ${p => p.theme.space[2]}px;
@@ -50,4 +51,14 @@ export const Link = styled(NavLink)`
   display: flex;
   flex-direction: column;
   height: 100%;
+`;
+
+export const Rating = styled.div`
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: ${p => p.theme.colors.activeText};
+  color: ${p => p.theme.colors.navBcg};
+  border-radius: ${p => p.theme.radii.ratingVew};
+  font-weight: ${p => p.theme.fontWeights.medium};
 `;

@@ -7,7 +7,7 @@ export const MovieList = ({ list }) => {
 
   return (
     <SC.MovieList>
-      {list.map(({ id, title, poster_path }) => (
+      {list.map(({ id, title, poster_path, vote_average }) => (
         <SC.ListItem key={id}>
           <SC.Link
             to={location.pathname === '/' ? `movies/${id}` : `${id}`}
@@ -24,6 +24,7 @@ export const MovieList = ({ list }) => {
 
             <SC.ItemTitle>{title}</SC.ItemTitle>
           </SC.Link>
+          <SC.Rating>{vote_average.toFixed(2)}</SC.Rating>
         </SC.ListItem>
       ))}
     </SC.MovieList>

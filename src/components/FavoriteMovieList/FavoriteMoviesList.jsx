@@ -18,6 +18,7 @@ export const FavoriteMovieList = ({ list }) => {
             />
             <SC.ItemTitle>{data.data.title}</SC.ItemTitle>
           </SC.Link>
+          <SC.Rating>{data.data.vote_average.toFixed(2)}</SC.Rating>
         </SC.ListItem>
       ))}
     </SC.MovieList>
