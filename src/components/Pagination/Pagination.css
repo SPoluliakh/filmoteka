@@ -1,0 +1,24 @@
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.item.active .link {
+  color: #fff;
+  background-color: #01b4e4;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  padding: 15px 20px;
+  color: #0d253f;
+  background-color: #fff;
+}
+
+.link:hover {
+  background-color: #90cea1;
+  color: #fff;
+}

@@ -1,52 +1,44 @@
-import { useState, useEffect } from 'react';
-import { fetchById } from 'components/Fetch';
+import { useState, useEffect, useRef } from 'react';
+import { fetchById } from 'Utils/Fetch';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
-import NoImg from '../components/NoImg/sad-cat-15.jpg';
+import { MovieCard } from 'components/MovieCard/MovieCard';
+import { LinkTo } from 'components/Link/Link';
+import { Box } from 'components/Box';
 
 export const FilmDetails = () => {
   const [filmDetails, setFilmDetails] = useState(null);
   const { filmId } = useParams();
   const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
+  const backLocation = useRef(backLinkHref);
 
   useEffect(() => {
-    fetchById(filmId).then(setFilmDetails);
+    fetchById(filmId).then(setFilmDetails).catch(console.log);
   }, [filmId]);
   if (!filmDetails) {
     return;
   }
-  const backLinkHref = location.state?.from ?? '/';
-  console.log(backLinkHref);
+
+  const cast = 'cast';
+  const reviews = 'reviews';
   const { title, popularity, overview, genres, poster_path } = filmDetails.data;
   return (
     <>
-      <main>
-        <Link to={backLinkHref}> Back to movies</Link>
-        <img
-          src={
-            poster_path
-              ? `https://image.tmdb.org/t/p/original/${poster_path}`
-              : NoImg
-          }
-          alt={title}
-          style={{ width: '300px' }}
+      <Box as="main" pt={6}>
+        <LinkTo path={backLocation.current}> Go back </LinkTo>
+        <MovieCard
+          title={title}
+          popularity={popularity}
+          overview={overview}
+          genres={genres}
+          poster_path={poster_path}
+          filmDetails={filmDetails}
         />
-        <div>
-          <h1>{title}</h1>
-          <h2>Rating: </h2>
-          <p>{popularity.toFixed(2)}%</p>
-          <h2>Overview</h2>
-          <p>{overview}</p>
-          <h2>Genres</h2>
-          <ul>
-            {genres.map(({ name }) => (
-              <li key={name}> {name} </li>
-            ))}
-          </ul>
-        </div>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+        <LinkTo path={cast}> Cast </LinkTo>
+        <LinkTo path={reviews}> Reviews </LinkTo>
+
         <Outlet />
-      </main>
+      </Box>
     </>
   );
 };

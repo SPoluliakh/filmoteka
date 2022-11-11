@@ -1,24 +1,24 @@
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { useState, useEffect } from 'react';
-import { fetchByName } from 'components/Fetch';
+import { fetchByName } from 'Utils/Fetch';
+import { MovieList } from 'components/MovieList/MovieList';
 
 export const Movies = () => {
   const [name, setName] = useState('');
   const [movieList, setMovieList] = useState(null);
   const [seachParams, setSearchParams] = useSearchParams();
   const parametr = seachParams.get('query') ?? '';
-  const location = useLocation();
 
   useEffect(() => {
     if (parametr !== '') {
-      fetchByName(parametr).then(setMovieList);
+      fetchByName(parametr).then(setMovieList).catch(console.log);
     }
   }, [parametr]);
 
   const handleSubmit = value => {
     setSearchParams(value !== '' ? { query: value } : {});
-    setName(value);
+    setName(value); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   };
 
   const handleFilterChange = value => {
@@ -30,7 +30,6 @@ export const Movies = () => {
     setSearchParams({});
   };
 
-  console.log(movieList);
   return (
     <>
       <SearchBar
@@ -39,17 +38,8 @@ export const Movies = () => {
         onChange={handleFilterChange}
         clearInput={clearFilter}
       />
-      {movieList && (
-        <ul>
-          {movieList.data.results.map(({ original_title, id }) => (
-            <li key={id}>
-              <Link to={`${id}`} state={{ from: location }}>
-                {original_title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      {movieList && <MovieList list={movieList.data.results} />}
+      {movieList?.data.results.length === 0 && <div> Soryyyyy</div>}
     </>
   );
 };

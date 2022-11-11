@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCast } from '../Fetch';
+import { fetchCast } from '../../Utils/Fetch';
+import * as SC from './Cast.styled';
 import NoImg from '../../components/NoImg/sad-cat-15.jpg';
 
 export const Cast = () => {
@@ -14,9 +15,8 @@ export const Cast = () => {
   if (!castInfo) return;
 
   const { cast } = castInfo.data;
-  console.log(cast);
   return (
-    <ul>
+    <SC.CastList>
       {cast.map(({ credit_id, name, profile_path, character }) => (
         <li key={credit_id}>
           <img
@@ -26,12 +26,14 @@ export const Cast = () => {
                 : NoImg
             }
             alt={name}
-            style={{ width: '300px' }}
+            style={{ width: '200px' }}
           />
-          <h3> {name} </h3>
-          <p> {character} </p>
+          <SC.CastInfoWrap>
+            <SC.CastInfoTitle> {name} </SC.CastInfoTitle>
+            <SC.CastInfoText> {character} </SC.CastInfoText>
+          </SC.CastInfoWrap>
         </li>
       ))}
-    </ul>
+    </SC.CastList>
   );
 };

@@ -1,5 +1,5 @@
 export const theme = Object.freeze({
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [0, 4, 8, 16, 32, 64, 72, 128, 256, 512],
   fonts: {
     body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     heading: 'inherit',
@@ -16,7 +16,7 @@ export const theme = Object.freeze({
   fontWeights: {
     normal: 400,
     medium: 700,
-    bold: 700,
+    bold: 900,
   },
   lineHeights: {
     body: 1.5,
@@ -26,21 +26,20 @@ export const theme = Object.freeze({
     primary: 'white',
     secondary: '#0b0b0bbd',
     activeText: 'black',
-    hoverText: '#rosybrown',
+    background: '#ff000087',
     hoverBcg: '#ffffff94',
+    buttonBcg: '#0b0b0b00',
+    headerBcg: 'brown',
+    description: 'antiquewhite',
+    navBcg: 'navajowhite',
 
-    placeholder: '#f5ff00a6',
-    inputText: 'yellow',
     inputBcg: ' #4056b4',
-    background: 'rgba(0, 0, 0, 0.5)',
-
-    BtnBackground: '#fefe60',
   },
   radii: {
     none: '0',
     normal: '2px',
     round: '50%',
-    sadVew: '20px',
+    sadVew: '18px',
   },
   borders: {
     none: 'none',
@@ -49,8 +48,8 @@ export const theme = Object.freeze({
   },
   shadows: {
     textShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) ',
+    boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) ',
 
-    boxShadow: '0px 0px 4px 3px gray',
     buttonsShadow: ' 0 1px 1px #2d2020',
     deletButton: '3px 3px 3px 0 red',
   },

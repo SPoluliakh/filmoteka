@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchReview } from '../Fetch';
+import { fetchReview } from '../../Utils/Fetch';
+import * as SC from './Review.styled';
 import NoImg from '../../components/NoImg/sad-cat-15.jpg';
 
 export const Review = () => {
@@ -19,16 +20,18 @@ export const Review = () => {
     <>
       {results.length ? (
         results.map(({ author, content, id }) => (
-          <div key={id}>
-            <h3> {author} </h3>
-            <p> {content} </p>
-          </div>
+          <SC.RevieWrap key={id}>
+            <SC.ReviewTitle> {author} </SC.ReviewTitle>
+            <SC.ReviewText> {content} </SC.ReviewText>
+          </SC.RevieWrap>
         ))
       ) : (
-        <div>
+        <SC.NoInfoWrap>
           <img src={NoImg} alt="sad cat" style={{ width: '300px' }} />
-          <p>Sorry,there is no detail information yet.</p>
-        </div>
+          <SC.NoInfoText>
+            Sorry,there is no detail information yet.
+          </SC.NoInfoText>
+        </SC.NoInfoWrap>
       )}
     </>
   );

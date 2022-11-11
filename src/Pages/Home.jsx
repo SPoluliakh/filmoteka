@@ -1,31 +1,32 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { fetch } from 'components/Fetch';
+import { useSearchParams } from 'react-router-dom';
+import { fetch } from 'Utils/Fetch';
+import PaginatedItems from 'components/Pagination/Pagination';
+import { TopMovies } from 'components/TopMovies/TopMovies';
 
 export const Home = () => {
   const [topFilmsList, setTopFilmsList] = useState(null);
-  useEffect(() => {
-    fetch().then(setTopFilmsList).catch(console.log);
-  }, []);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pageNumber = Number(searchParams.get('page') ?? 1);
 
-  const location = useLocation();
+  useEffect(() => {
+    fetch(pageNumber).then(setTopFilmsList).catch(console.log);
+  }, [pageNumber]);
 
   if (!topFilmsList) {
     return;
   }
 
-  const { results } = topFilmsList.data;
+  const { results, total_pages } = topFilmsList.data;
+
   return (
     <>
-      <ul>
-        {results.map(({ id, title }) => (
-          <li key={id}>
-            <Link to={`movies/${id}`} state={{ from: location }}>
-              {title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <TopMovies list={results} />
+      <PaginatedItems
+        setPageNumber={setSearchParams}
+        totalPages={Number(total_pages)}
+        currentPage={pageNumber - 1}
+      />
     </>
   );
 };

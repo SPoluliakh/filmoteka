@@ -3,17 +3,18 @@ import * as SC from './AppBar.styled';
 const navItems = [
   { href: '/', text: 'Home' },
   { href: 'movies', text: 'Movies' },
+  { href: 'favorite', text: 'Favorite' },
 ];
 export const AppBar = () => {
   return (
-    <header>
-      <nav>
+    <SC.Header>
+      <SC.Nav>
         {navItems.map(({ href, text }) => (
           <SC.NavItem key={href} to={href}>
             {text}
           </SC.NavItem>
         ))}
-      </nav>
-    </header>
+      </SC.Nav>
+    </SC.Header>
   );
 };
