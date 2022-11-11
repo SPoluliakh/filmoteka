@@ -6,6 +6,7 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
   return (
     <Box
       as="form"
+      width="1098px"
       pt={6}
       pl={5}
       mb={3}

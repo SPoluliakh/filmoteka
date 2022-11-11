@@ -44,11 +44,11 @@ export const fetchReview = async id => {
   return response;
 };
 
-export const fetchByName = async name => {
+export const fetchByName = async (name, page) => {
   const searchParams = new URLSearchParams({
     api_key: API_KEY,
     language: 'en-US',
-    page: 1,
+    page: page,
     include_adult: false,
     query: `${name}`,
   });

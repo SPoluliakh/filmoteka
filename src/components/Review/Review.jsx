@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReview } from '../../Utils/Fetch';
 import * as SC from './Review.styled';
-import NoImg from '../../components/NoImg/sad-cat-15.jpg';
+import { NoInfoText } from '../NoInfo/NoInfo';
 
 export const Review = () => {
   const [reviewInfo, setReviewInfo] = useState(null);
@@ -26,12 +26,7 @@ export const Review = () => {
           </SC.RevieWrap>
         ))
       ) : (
-        <SC.NoInfoWrap>
-          <img src={NoImg} alt="sad cat" style={{ width: '300px' }} />
-          <SC.NoInfoText>
-            Sorry,there is no detail information yet.
-          </SC.NoInfoText>
-        </SC.NoInfoWrap>
+        <NoInfoText>Sorry,there is no detail information yet.</NoInfoText>
       )}
     </>
   );

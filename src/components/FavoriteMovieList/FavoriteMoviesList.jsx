@@ -1,6 +1,6 @@
 import * as SC from './FavoriteMovieList.style';
 
-import NoImg from '../../components/NoImg/sad-cat-15.jpg';
+import NoImg from '../../components/NoImg/no-photo.png';
 
 export const FavoriteMovieList = ({ list }) => {
   return (

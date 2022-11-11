@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { setLocalStorage, getLocalStorage } from 'Utils/LocalStorage';
-import NoImg from '../../components/NoImg/sad-cat-15.jpg';
+import NoImg from '../../components/NoImg/no-photo.png';
 import * as SC from './MovieCard.styled';
 
 export const MovieCard = ({
@@ -53,9 +53,9 @@ export const MovieCard = ({
             <li key={name}> {name} </li>
           ))}
         </SC.CardList>
-        <button type="button" onClick={AddToFavotite}>
+        <SC.AddButton type="button" onClick={AddToFavotite}>
           {isInFavorite ? 'Remove from Library' : 'Add to Library'}
-        </button>
+        </SC.AddButton>
       </div>
     </SC.CardWrap>
   );

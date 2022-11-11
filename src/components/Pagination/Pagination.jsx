@@ -1,9 +1,14 @@
 import ReactPaginate from 'react-paginate';
 import './Pagination.css';
 
-function PaginatedItems({ setPageNumber, totalPages, currentPage }) {
+function PaginatedItems({ setPageNumber, totalPages, currentPage, parametr }) {
   const handlePageClick = event => {
-    setPageNumber({ page: event.selected + 1 });
+    parametr
+      ? setPageNumber({
+          query: parametr,
+          page: event.selected + 1,
+        })
+      : setPageNumber({ page: event.selected + 1 });
   };
 
   return (

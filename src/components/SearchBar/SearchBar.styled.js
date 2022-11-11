@@ -39,9 +39,4 @@ export const FormButton = styled.button`
       return '780px';
     }
   }};
-
-  transition: background-color 300ms linear;
-  :hover,
-  :focus {
-  }
 `;

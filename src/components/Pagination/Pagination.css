@@ -5,8 +5,8 @@
 }
 
 .item.active .link {
-  color: #fff;
-  background-color: #01b4e4;
+  color: black;
+  background-color: navajowhite;
 }
 
 .link {
@@ -14,11 +14,12 @@
   text-decoration: none;
   display: block;
   padding: 15px 20px;
-  color: #0d253f;
-  background-color: #fff;
+  color: white;
+  background-color: brown;
+  border-radius: 10px;
 }
 
 .link:hover {
-  background-color: #90cea1;
+  background-color: #ffffff94;
   color: #fff;
 }

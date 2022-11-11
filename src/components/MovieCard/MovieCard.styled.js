@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const CardWrap = styled.div`
+  padding-left: ${p => p.theme.space[7]}px;
+  padding-right: ${p => p.theme.space[7]}px;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -35,4 +37,29 @@ export const CardList = styled.ul`
   margin: 0 0 ${p => p.theme.space[5]}px 0;
   color: ${p => p.theme.colors.description};
   font-size: ${p => p.theme.fontSizes.s}px;
+`;
+
+export const AddButton = styled.button`
+  cursor: pointer;
+  font-family: inherit;
+  padding: ${p => p.theme.space[2]}px;
+  font-size: ${p => p.theme.fontSizes.s}px;
+  font-weight: ${p => p.theme.fontWeights.medium};
+  box-shadow: ${p => p.theme.shadows.boxShadow};
+  text-shadow: ${p => p.theme.shadows.textShadow};
+  border-radius: ${p => p.theme.radii.normal};
+  color: ${p => p.theme.colors.activeText};
+  background-color: ${p => {
+    return p.children === 'Add to Library'
+      ? p.theme.colors.headerBcg
+      : p.theme.colors.navBcg;
+  }};
+
+  :hover {
+    background-color: ${p => {
+      return p.children === 'Add to Library'
+        ? p.theme.colors.navBcg
+        : p.theme.colors.headerBcg;
+    }};
+  }
 `;

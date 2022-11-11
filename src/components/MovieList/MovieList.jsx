@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import * as SC from './MovieList.Styled';
-import NoImg from '../../components/NoImg/sad-cat-15.jpg';
+import NoImg from '../../components/NoImg/no-photo.png';
 
 export const MovieList = ({ list }) => {
   const location = useLocation();
