@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { setLocalStorage, getLocalStorage } from 'Utils/LocalStorage';
 import NoImg from '../../components/NoImg/sad-cat-15.jpg';
 import * as SC from './MovieCard.styled';
@@ -15,7 +15,6 @@ export const MovieCard = ({
   const favorite = useRef('myFilms');
   const { filmId } = useParams();
   const [isInFavorite, setIsInFavorite] = useState(false);
-  const location = useLocation();
 
   // console.log(location);
 
