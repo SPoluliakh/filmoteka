@@ -44,7 +44,8 @@ export const Home = () => {
           />
         </>
       )}
-      {loader === 'rejected' && <NoInfoText> Bad request... </NoInfoText>}
+      {loader === 'rejected' ||
+        (results.length === 0 && <NoInfoText> Bad request... </NoInfoText>)}
     </>
   );
 };

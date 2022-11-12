@@ -9,6 +9,7 @@ export const fetch = async page => {
   });
   const url = `https://api.themoviedb.org/3/trending/movie/week?${searchParams}`;
   const response = await axios.get(url);
+
   return response;
 };
 
@@ -17,7 +18,6 @@ export const fetchById = async id => {
     api_key: API_KEY,
     language: 'en-US',
   });
-
   const url = `https://api.themoviedb.org/3/movie/${id}?${searchParams}`;
   const response = await axios.get(url);
   return response;

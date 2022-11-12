@@ -33,8 +33,6 @@ export const FilmDetails = () => {
     return;
   }
 
-  const cast = 'cast';
-  const reviews = 'reviews';
   const { title, popularity, overview, genres, poster_path } = filmDetails.data;
   return (
     <>
@@ -50,8 +48,8 @@ export const FilmDetails = () => {
             poster_path={poster_path}
             filmDetails={filmDetails}
           />
-          <LinkTo path={cast}> Cast </LinkTo>
-          <LinkTo path={reviews}> Reviews </LinkTo>
+          <LinkTo path="cast"> Cast </LinkTo>
+          <LinkTo path="reviews"> Reviews </LinkTo>
 
           <Suspense fallback={null}>
             <Outlet />
@@ -59,11 +57,13 @@ export const FilmDetails = () => {
         </Box>
       )}
 
-      {loader === 'rejected' && (
-        <NoInfoText>
-          There are no movies matching your search, please try another keyword.
-        </NoInfoText>
-      )}
+      {loader === 'rejected' ||
+        (!filmDetails.data && (
+          <NoInfoText>
+            There are no movies matching your search, please try another
+            keyword.
+          </NoInfoText>
+        ))}
     </>
   );
 };

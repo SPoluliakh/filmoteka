@@ -50,9 +50,10 @@ export const Cast = () => {
           </SC.CastListItem>
         ))}
 
-      {loader === 'rejected' && (
-        <NoInfoText>Sorry, there is no cast info.</NoInfoText>
-      )}
+      {loader === 'rejected' ||
+        (cast.length === 0 && (
+          <NoInfoText>Sorry, there is no cast info.</NoInfoText>
+        ))}
     </SC.CastList>
   );
 };

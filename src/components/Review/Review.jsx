@@ -36,9 +36,10 @@ export const Review = () => {
             <SC.ReviewText> {content} </SC.ReviewText>
           </SC.RevieWrap>
         ))}
-      {loader === 'rejected' && (
-        <NoInfoText>Sorry, there is no detail information yet.</NoInfoText>
-      )}
+      {loader === 'rejected' ||
+        (results.length === 0 && (
+          <NoInfoText>Sorry, there is no detail information yet.</NoInfoText>
+        ))}
     </>
   );
 };
