@@ -3,13 +3,24 @@ import { useParams } from 'react-router-dom';
 import { fetchReview } from '../../Utils/Fetch';
 import * as SC from './Review.styled';
 import { NoInfoText } from '../NoInfo/NoInfo';
+import Spiner from 'components/Spiner/Spiner';
 
 export const Review = () => {
+  const [loader, setLoader] = useState(null);
   const [reviewInfo, setReviewInfo] = useState(null);
   const { filmId } = useParams();
 
   useEffect(() => {
-    fetchReview(filmId).then(setReviewInfo).catch(console.log);
+    setLoader('pending');
+    fetchReview(filmId)
+      .then(data => {
+        setReviewInfo(data);
+        setLoader('resolve');
+      })
+      .catch(err => {
+        console.log(err);
+        setLoader('rejected');
+      });
   }, [filmId]);
 
   if (!reviewInfo) return;
@@ -17,14 +28,15 @@ export const Review = () => {
   const { results } = reviewInfo.data;
   return (
     <>
-      {results.length ? (
+      {loader === 'pending' && <Spiner />}
+      {loader === 'resolve' &&
         results.map(({ author, content, id }) => (
           <SC.RevieWrap key={id}>
             <SC.ReviewTitle> {author} </SC.ReviewTitle>
             <SC.ReviewText> {content} </SC.ReviewText>
           </SC.RevieWrap>
-        ))
-      ) : (
+        ))}
+      {loader === 'rejected' && (
         <NoInfoText>Sorry, there is no detail information yet.</NoInfoText>
       )}
     </>

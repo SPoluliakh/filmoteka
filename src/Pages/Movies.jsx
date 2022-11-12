@@ -62,11 +62,6 @@ export const Movies = () => {
           currentPage={pageNumber - 1}
         />
       )}
-      {parametr && movieList?.data.results.length === 0 && (
-        <NoInfoText>
-          There are no movies matching your search, please try another keyword.
-        </NoInfoText>
-      )}
       {loader === 'rejected' && (
         <NoInfoText>
           There are no movies matching your search, please try another keyword.

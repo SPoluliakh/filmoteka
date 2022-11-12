@@ -1,4 +1,4 @@
-import { Box } from 'components/Box';
+import { Box } from 'Utils/Box';
 import * as SC from './TopMovies.Styled';
 import { MovieList } from 'components/MovieList/MovieList';
 

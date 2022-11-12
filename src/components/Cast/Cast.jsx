@@ -4,13 +4,24 @@ import { fetchCast } from '../../Utils/Fetch';
 import * as SC from './Cast.styled';
 import NoImg from '../../components/NoImg/no-photo.png';
 import { NoInfoText } from 'components/NoInfo/NoInfo.styled';
+import Spiner from 'components/Spiner/Spiner';
 
 export const Cast = () => {
+  const [loader, setLoader] = useState(null);
   const [castInfo, setCastInfo] = useState(null);
   const { filmId } = useParams();
 
   useEffect(() => {
-    fetchCast(filmId).then(setCastInfo).catch(console.log);
+    setLoader('pending');
+    fetchCast(filmId)
+      .then(data => {
+        setCastInfo(data);
+        setLoader('resolve');
+      })
+      .catch(err => {
+        console.log(err);
+        setLoader('rejected');
+      });
   }, [filmId]);
 
   if (!castInfo) return;
@@ -18,7 +29,8 @@ export const Cast = () => {
   const { cast } = castInfo.data;
   return (
     <SC.CastList>
-      {cast?.length > 0 ? (
+      {loader === 'pending' && <Spiner />}
+      {loader === 'resolve' &&
         cast.map(({ credit_id, name, profile_path, character }) => (
           <SC.CastListItem key={credit_id}>
             <SC.InnerWrap>
@@ -36,9 +48,10 @@ export const Cast = () => {
               </SC.CastInfoWrap>
             </SC.InnerWrap>
           </SC.CastListItem>
-        ))
-      ) : (
-        <NoInfoText> Sorry, there is no cast info.</NoInfoText>
+        ))}
+
+      {loader === 'rejected' && (
+        <NoInfoText>Sorry, there is no cast info.</NoInfoText>
       )}
     </SC.CastList>
   );

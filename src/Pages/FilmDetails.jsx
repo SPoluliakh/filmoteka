@@ -4,7 +4,7 @@ import { fetchById } from 'Utils/Fetch';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { LinkTo } from 'components/Link/Link';
-import { Box } from 'components/Box';
+import { Box } from 'Utils/Box';
 import Spiner from 'components/Spiner/Spiner';
 import { NoInfoText } from '../components/NoInfo/NoInfo';
 

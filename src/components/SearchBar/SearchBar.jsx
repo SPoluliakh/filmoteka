@@ -1,4 +1,4 @@
-import { Box } from 'components/Box';
+import { Box } from 'Utils/Box';
 import * as SC from './SearchBar.styled';
 import { BsXLg, BsSearch } from 'react-icons/bs';
 
