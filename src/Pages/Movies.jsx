@@ -53,8 +53,10 @@ export const Movies = () => {
         clearInput={clearFilter}
       />
       {loader === 'pending' && <Spiner />}
-      {loader === 'resolve' && <MovieList list={movieList.data.results} />}
-      {loader === 'resolve' && (
+      {loader === 'resolve' && movieList?.data.results.length > 0 && (
+        <MovieList list={movieList.data.results} />
+      )}
+      {loader === 'resolve' && movieList?.data.results.length > 0 && (
         <PaginatedItems
           parametr={parametr}
           setPageNumber={setSearchParams}

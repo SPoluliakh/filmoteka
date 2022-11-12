@@ -10,12 +10,12 @@ function PaginatedItems({ setPageNumber, totalPages, currentPage, parametr }) {
         })
       : setPageNumber({ page: event.selected + 1 });
   };
-
+  const firstPage = totalPages > 0 ? currentPage : 0;
   return (
     <>
       <ReactPaginate
         pageCount={totalPages}
-        forcePage={currentPage}
+        forcePage={firstPage}
         breakLabel="..."
         nextLabel="next >"
         onPageChange={handlePageClick}

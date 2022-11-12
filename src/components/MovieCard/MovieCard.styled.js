@@ -55,6 +55,8 @@ export const AddButton = styled.button`
       : p.theme.colors.navBcg;
   }};
 
+  transition: background-color 250ms linear;
+
   :hover {
     background-color: ${p => {
       return p.children === 'Add to Library'
