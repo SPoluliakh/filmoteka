@@ -1,6 +1,7 @@
 import { Box } from 'Utils/Box';
 import * as SC from './SearchBar.styled';
 import { BsXLg, BsSearch } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
 export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
   return (
@@ -33,4 +34,11 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
       </SC.FormButton>
     </Box>
   );
+};
+
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  clearInput: PropTypes.func,
 };

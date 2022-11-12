@@ -42,14 +42,9 @@ export const theme = Object.freeze({
   },
   borders: {
     none: 'none',
-    loadMore: '2px solid #4056b4',
-    serchBtn: '4px solid yellow',
   },
   shadows: {
     textShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) ',
     boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) ',
-
-    buttonsShadow: ' 0 1px 1px #2d2020',
-    deletButton: '3px 3px 3px 0 red',
   },
 });

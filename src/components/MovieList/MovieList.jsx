@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import * as SC from './MovieList.Styled';
 import NoImg from '../../components/NoImg/no-photo.png';
+import PropTypes from 'prop-types';
 
 export const MovieList = ({ list }) => {
   const location = useLocation();
@@ -29,4 +30,8 @@ export const MovieList = ({ list }) => {
       ))}
     </SC.MovieList>
   );
+};
+
+MovieList.prototype = {
+  list: PropTypes.array,
 };

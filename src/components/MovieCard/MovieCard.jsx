@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { setLocalStorage, getLocalStorage } from 'Utils/LocalStorage';
 import NoImg from '../../components/NoImg/no-photo.png';
 import * as SC from './MovieCard.styled';
+import PropTypes from 'prop-types';
 
 export const MovieCard = ({
   genres,
@@ -59,4 +60,13 @@ export const MovieCard = ({
       </div>
     </SC.CardWrap>
   );
+};
+
+MovieCard.propTypes = {
+  genres: PropTypes.array,
+  overview: PropTypes.string,
+  popularity: PropTypes.number,
+  title: PropTypes.string,
+  poster_path: PropTypes.string,
+  filmDetails: PropTypes.object,
 };

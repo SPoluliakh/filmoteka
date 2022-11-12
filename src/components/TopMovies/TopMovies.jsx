@@ -1,6 +1,7 @@
 import { Box } from 'Utils/Box';
 import * as SC from './TopMovies.Styled';
 import { MovieList } from 'components/MovieList/MovieList';
+import PropTypes from 'prop-types';
 
 export const TopMovies = ({ list }) => {
   return (
@@ -9,4 +10,8 @@ export const TopMovies = ({ list }) => {
       <MovieList list={list} />
     </Box>
   );
+};
+
+TopMovies.prototype = {
+  list: PropTypes.array,
 };

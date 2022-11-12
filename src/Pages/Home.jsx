@@ -20,8 +20,8 @@ export const Home = () => {
         setLoader('resolve');
       })
       .catch(err => {
-        console.log(err);
         setLoader('rejected');
+        console.log(err);
       });
   }, [pageNumber]);
 

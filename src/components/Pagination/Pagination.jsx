@@ -1,5 +1,6 @@
 import ReactPaginate from 'react-paginate';
 import './Pagination.css';
+import PropTypes from 'prop-types';
 
 function PaginatedItems({ setPageNumber, totalPages, currentPage, parametr }) {
   const handlePageClick = event => {
@@ -10,12 +11,12 @@ function PaginatedItems({ setPageNumber, totalPages, currentPage, parametr }) {
         })
       : setPageNumber({ page: event.selected + 1 });
   };
-  const firstPage = totalPages > 0 ? currentPage : 0;
+
   return (
     <>
       <ReactPaginate
         pageCount={totalPages}
-        forcePage={firstPage}
+        forcePage={currentPage}
         breakLabel="..."
         nextLabel="next >"
         onPageChange={handlePageClick}
@@ -39,3 +40,10 @@ function PaginatedItems({ setPageNumber, totalPages, currentPage, parametr }) {
 }
 
 export default PaginatedItems;
+
+PaginatedItems.propTypes = {
+  setPageNumber: PropTypes.func,
+  totalPages: PropTypes.number,
+  currentPage: PropTypes.number,
+  parametr: PropTypes.string,
+};

@@ -24,8 +24,8 @@ export const Movies = () => {
           setLoader('resolve');
         })
         .catch(err => {
-          console.log(err);
           setLoader('rejected');
+          console.log(err);
         });
       setName(parametr);
     }

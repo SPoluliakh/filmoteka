@@ -1,5 +1,5 @@
 import * as SC from './FavoriteMovieList.style';
-
+import PropTypes from 'prop-types';
 import NoImg from '../../components/NoImg/no-photo.png';
 
 export const FavoriteMovieList = ({ list }) => {
@@ -23,4 +23,8 @@ export const FavoriteMovieList = ({ list }) => {
       ))}
     </SC.MovieList>
   );
+};
+
+FavoriteMovieList.prototype = {
+  list: PropTypes.array,
 };
