@@ -33,7 +33,8 @@ export const FilmDetails = () => {
     return;
   }
 
-  const { title, popularity, overview, genres, poster_path } = filmDetails.data;
+  const { title, vote_average, overview, genres, poster_path } =
+    filmDetails.data;
   return (
     <>
       {loader === 'pending' && <Spiner />}
@@ -42,7 +43,7 @@ export const FilmDetails = () => {
           <LinkTo path={backLocation.current}> Go back </LinkTo>
           <MovieCard
             title={title}
-            popularity={popularity}
+            popularity={vote_average}
             overview={overview}
             genres={genres}
             poster_path={poster_path}
@@ -50,6 +51,7 @@ export const FilmDetails = () => {
           />
           <LinkTo path="cast"> Cast </LinkTo>
           <LinkTo path="reviews"> Reviews </LinkTo>
+          <LinkTo path="trailers"> Trailers </LinkTo>
 
           <Suspense fallback={null}>
             <Outlet />

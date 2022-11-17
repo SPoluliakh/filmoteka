@@ -11,10 +11,13 @@ export const Home = () => {
   const [topFilmsList, setTopFilmsList] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const pageNumber = Number(searchParams.get('page') ?? 1);
+  const selectedPeriod = searchParams.get('period');
+  const [period, setPeriod] = useState(selectedPeriod ?? 'day');
 
+  console.log(selectedPeriod);
   useEffect(() => {
     setLoader('pending');
-    fetch(pageNumber)
+    fetch(period, pageNumber)
       .then(data => {
         setTopFilmsList(data);
         setLoader('resolve');
@@ -23,7 +26,11 @@ export const Home = () => {
         setLoader('rejected');
         console.log(err);
       });
-  }, [pageNumber]);
+  }, [pageNumber, period]);
+
+  const changePeriod = value => {
+    setPeriod(value);
+  };
 
   if (!topFilmsList) {
     return;
@@ -36,8 +43,13 @@ export const Home = () => {
       {loader === 'pending' && <Spiner />}
       {loader === 'resolve' && (
         <>
-          <TopMovies list={results} />
+          <TopMovies
+            list={results}
+            onChangePeriod={changePeriod}
+            period={period}
+          />
           <PaginatedItems
+            period={period}
             setPageNumber={setSearchParams}
             totalPages={Number(total_pages)}
             currentPage={pageNumber - 1}

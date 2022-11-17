@@ -17,8 +17,8 @@ export const ReviewText = styled.p`
   color: ${p => p.theme.colors.navBcg};
 `;
 
-export const NoInfoWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+// export const NoInfoWrap = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;

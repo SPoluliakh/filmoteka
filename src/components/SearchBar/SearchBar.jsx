@@ -2,8 +2,15 @@ import { Box } from 'Utils/Box';
 import * as SC from './SearchBar.styled';
 import { BsXLg, BsSearch } from 'react-icons/bs';
 import PropTypes from 'prop-types';
+import { useRef } from 'react';
 
 export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
+  const inputRef = useRef();
+  const onInputFocus = () => {
+    clearInput();
+    inputRef.current.focus();
+  };
+
   return (
     <Box
       as="form"
@@ -27,9 +34,10 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
         type="text"
         onChange={evt => onChange(evt.target.value)}
         placeholder="Enter movie`s name"
+        ref={inputRef}
       />
 
-      <SC.FormButton type="button" onClick={() => clearInput()}>
+      <SC.FormButton type="button" onClick={() => onInputFocus()}>
         <BsXLg size="18" />
       </SC.FormButton>
     </Box>

@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCast } from '../../Utils/Fetch';
+import { fetchTrailers } from '../../Utils/Fetch';
 import { NoInfoText } from 'components/NoInfo/NoInfo.styled';
 import Spiner from 'components/Spiner/Spiner';
-import { CastInfo } from './CastInfo';
+import { VideoPlayer } from './VideoPlayer';
 
-export const Cast = () => {
+export const Trailers = () => {
   const [loader, setLoader] = useState(null);
-  const [castInfo, setCastInfo] = useState(null);
+  const [trailers, setTrailers] = useState(null);
   const { filmId } = useParams();
 
   useEffect(() => {
     setLoader('pending');
-    fetchCast(filmId)
+    fetchTrailers(filmId)
       .then(data => {
-        setCastInfo(data);
+        setTrailers(data);
         setLoader('resolve');
+        console.log(data);
       })
       .catch(err => {
         console.log(err);
@@ -23,16 +24,16 @@ export const Cast = () => {
       });
   }, [filmId]);
 
-  if (!castInfo) return;
+  if (!trailers) return;
 
-  const { cast } = castInfo.data;
+  const { results } = trailers.data;
   return (
     <>
       {loader === 'pending' && <Spiner />}
-      {loader === 'resolve' && <CastInfo castInfo={cast} />}
+      {loader === 'resolve' && <VideoPlayer data={results} />}
       {loader === 'rejected' ||
-        (cast.length === 0 && (
-          <NoInfoText>Sorry, there is no cast info.</NoInfoText>
+        (results.length === 0 && (
+          <NoInfoText>Sorry, there is no video.</NoInfoText>
         ))}
     </>
   );

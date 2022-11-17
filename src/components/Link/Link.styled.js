@@ -8,6 +8,12 @@ export const LinkTo = styled(NavLink)`
   color: ${p => p.theme.colors.primary};
   text-shadow: ${p => p.theme.shadows.textShadow};
   margin-bottom: ${p => p.theme.space[3]}px;
+  font-size: ${p => p.theme.fontSizes.m}px;
+  font-weight: ${p => p.theme.fontWeights.medium};
+
+  &.active {
+    color: ${p => p.theme.colors.headerBcg};
+  }
 
   transition: color 300ms linear;
   :hover {
@@ -26,6 +32,10 @@ export const LinkTo = styled(NavLink)`
     transition: scale 300ms linear;
   }
   &:hover::after {
+    scale: 1;
+  }
+
+  &.active::after {
     scale: 1;
   }
 

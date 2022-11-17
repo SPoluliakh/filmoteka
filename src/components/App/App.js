@@ -2,16 +2,12 @@ import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
 import { Home } from 'Pages/Home';
-
-import { Review } from 'components/Review/Review';
-
 const Movies = lazy(() =>
   import('../../Pages/Movies').then(module => ({
     ...module,
     default: module.Movies,
   }))
 );
-
 const FilmDetails = lazy(() =>
   import('../../Pages/FilmDetails').then(module => ({
     ...module,
@@ -30,6 +26,18 @@ const Cast = lazy(() =>
     default: module.Cast,
   }))
 );
+const Review = lazy(() =>
+  import('../Review/Review').then(module => ({
+    ...module,
+    default: module.Review,
+  }))
+);
+const Trailers = lazy(() =>
+  import('../Trailers/Trailers').then(module => ({
+    ...module,
+    default: module.Trailers,
+  }))
+);
 
 export const App = () => {
   return (
@@ -41,6 +49,7 @@ export const App = () => {
         <Route path="movies/:filmId" element={<FilmDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Review />} />
+          <Route path="trailers" element={<Trailers />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Route>

@@ -45,7 +45,7 @@ export const MovieCard = ({
       <div>
         <SC.CardTitle>{title}</SC.CardTitle>
         <SC.CardSubTitle>Rating: </SC.CardSubTitle>
-        <SC.CardText>{popularity.toFixed(2)}%</SC.CardText>
+        <SC.CardText>{Math.round(popularity * 10)}%</SC.CardText>
         <SC.CardSubTitle>Overview: </SC.CardSubTitle>
         <SC.CardText>{overview}</SC.CardText>
         <SC.CardSubTitle>Genres: </SC.CardSubTitle>
@@ -55,7 +55,7 @@ export const MovieCard = ({
           ))}
         </SC.CardList>
         <SC.AddButton type="button" onClick={AddToFavotite}>
-          {isInFavorite ? 'Remove from Library' : 'Add to Library'}
+          {isInFavorite ? 'Remove from Favorite' : 'Add to Favorite'}
         </SC.AddButton>
       </div>
     </SC.CardWrap>
