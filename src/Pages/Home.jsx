@@ -14,7 +14,6 @@ export const Home = () => {
   const selectedPeriod = searchParams.get('period');
   const [period, setPeriod] = useState(selectedPeriod ?? 'day');
 
-  console.log(selectedPeriod);
   useEffect(() => {
     setLoader('pending');
     fetch(period, pageNumber)

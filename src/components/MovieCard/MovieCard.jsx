@@ -12,6 +12,7 @@ export const MovieCard = ({
   title,
   poster_path,
   filmDetails,
+  release_date,
 }) => {
   const favorite = useRef('myFilms');
   const { filmId } = useParams();
@@ -43,7 +44,9 @@ export const MovieCard = ({
         style={{ width: '300px' }}
       />
       <div>
-        <SC.CardTitle>{title}</SC.CardTitle>
+        <SC.CardTitle>
+          {title} {`(${release_date.slice(0, 4)})`}
+        </SC.CardTitle>
         <SC.CardSubTitle>Rating: </SC.CardSubTitle>
         <SC.CardText>{Math.round(popularity * 10)}%</SC.CardText>
         <SC.CardSubTitle>Overview: </SC.CardSubTitle>

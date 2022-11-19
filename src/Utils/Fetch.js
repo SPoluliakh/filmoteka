@@ -2,6 +2,17 @@ import axios from 'axios';
 
 const API_KEY = `21ae8667e2d219d1bbc4eb64edced0b5`;
 
+export const fetch = async (period, page) => {
+  const searchParams = new URLSearchParams({
+    api_key: API_KEY,
+    page: page,
+  });
+  const url = `https://api.themoviedb.org/3/trending/movie/${period}?${searchParams}`;
+  const response = await axios.get(url);
+
+  return response;
+};
+
 export const fetchById = async id => {
   const searchParams = new URLSearchParams({
     api_key: API_KEY,
@@ -51,16 +62,5 @@ export const fetchTrailers = async id => {
   });
   const url = `https://api.themoviedb.org/3/movie/${id}/videos?${searchParams}`;
   const response = await axios.get(url);
-  return response;
-};
-
-export const fetch = async (period, page) => {
-  const searchParams = new URLSearchParams({
-    api_key: API_KEY,
-    page: page,
-  });
-  const url = `https://api.themoviedb.org/3/trending/movie/${period}?${searchParams}`;
-  const response = await axios.get(url);
-
   return response;
 };

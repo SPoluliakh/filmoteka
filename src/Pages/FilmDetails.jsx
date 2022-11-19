@@ -33,7 +33,7 @@ export const FilmDetails = () => {
     return;
   }
 
-  const { title, vote_average, overview, genres, poster_path } =
+  const { title, vote_average, overview, genres, poster_path, release_date } =
     filmDetails.data;
   return (
     <>
@@ -48,6 +48,7 @@ export const FilmDetails = () => {
             genres={genres}
             poster_path={poster_path}
             filmDetails={filmDetails}
+            release_date={release_date}
           />
           <LinkTo path="cast"> Cast </LinkTo>
           <LinkTo path="reviews"> Reviews </LinkTo>

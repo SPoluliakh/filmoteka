@@ -15,7 +15,10 @@ function PaginatedItems({
           query: parametr,
           page: event.selected + 1,
         })
-      : setPageNumber({ period: period, page: event.selected + 1 });
+      : setPageNumber({
+          period: period,
+          page: event.selected + 1,
+        });
   };
 
   return (
