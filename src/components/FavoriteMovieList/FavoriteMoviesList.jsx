@@ -1,13 +1,15 @@
 import * as SC from './FavoriteMovieList.style';
 import PropTypes from 'prop-types';
 import NoImg from '../../components/NoImg/no-photo.png';
+import { useLocation } from 'react-router-dom';
 
 export const FavoriteMovieList = ({ list }) => {
+  const location = useLocation();
   return (
     <SC.MovieList>
       {list.map(data => (
         <SC.ListItem key={data.data.id}>
-          <SC.Link to={`/movies/${data.data.id}`}>
+          <SC.Link to={`/movies/${data.data.id}`} state={{ from: location }}>
             <SC.ItemImg
               src={
                 data.data.poster_path
