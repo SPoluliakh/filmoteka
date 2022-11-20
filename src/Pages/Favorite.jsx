@@ -15,7 +15,7 @@ export const Favorite = () => {
       {favoriteMovies.length > 0 ? (
         <FavoriteMovieList list={favoriteMovies} />
       ) : (
-        <NoInfoText> There is no favotite movies yet. </NoInfoText>
+        <NoInfoText> There is no favorite movies yet. </NoInfoText>
       )}
     </div>
   );

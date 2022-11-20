@@ -5,4 +5,6 @@ export const NoInfoText = styled.p`
   font-size: ${p => p.theme.fontSizes.ml}px;
   font-weight: ${p => p.theme.fontWeights.medium};
   text-shadow: ${p => p.theme.shadows.textShadow};
+  margin-top: ${p => p.theme.space[7]}px;
+  text-align: center;
 `;
