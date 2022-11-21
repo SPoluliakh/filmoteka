@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { fetch } from 'Utils/Fetch';
+import { fetch, fetchByGenre } from 'Utils/Fetch';
 import PaginatedItems from 'components/Pagination/Pagination';
 import { TopMovies } from 'components/TopMovies/TopMovies';
 import Spiner from 'components/Spiner/Spiner';
@@ -12,11 +12,27 @@ export const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageNumber = Number(searchParams.get('page') ?? 1);
   const selectedPeriod = searchParams.get('period');
+  const selectedGenre = searchParams.get('genre');
   const [period, setPeriod] = useState(selectedPeriod ?? 'day');
+  const [genre, setGenre] = useState(selectedGenre ?? '1');
 
   useEffect(() => {
     setLoader('pending');
-    fetch(period, pageNumber)
+
+    if (genre === '1') {
+      fetch(period, pageNumber)
+        .then(data => {
+          setTopFilmsList(data);
+          setLoader('resolve');
+        })
+        .catch(err => {
+          setLoader('rejected');
+          console.log(err);
+        });
+
+      return;
+    }
+    fetchByGenre(genre, pageNumber)
       .then(data => {
         setTopFilmsList(data);
         setLoader('resolve');
@@ -25,10 +41,15 @@ export const Home = () => {
         setLoader('rejected');
         console.log(err);
       });
-  }, [pageNumber, period]);
+  }, [pageNumber, period, genre]);
 
   const changePeriod = value => {
     setPeriod(value);
+  };
+
+  //
+  const handleGenreChange = value => {
+    setGenre(value);
   };
 
   if (!topFilmsList) {
@@ -46,8 +67,11 @@ export const Home = () => {
             list={results}
             onChangePeriod={changePeriod}
             period={period}
+            genre={genre}
+            onChangeGenre={handleGenreChange}
           />
           <PaginatedItems
+            genre={genre}
             period={period}
             setPageNumber={setSearchParams}
             totalPages={Number(total_pages)}

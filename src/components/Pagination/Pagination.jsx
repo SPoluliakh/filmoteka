@@ -8,6 +8,7 @@ function PaginatedItems({
   currentPage,
   parametr,
   period,
+  genre,
 }) {
   const handlePageClick = event => {
     parametr
@@ -16,6 +17,7 @@ function PaginatedItems({
           page: event.selected + 1,
         })
       : setPageNumber({
+          genre: genre,
           period: period,
           page: event.selected + 1,
         });
@@ -55,4 +57,6 @@ PaginatedItems.propTypes = {
   totalPages: PropTypes.number,
   currentPage: PropTypes.number,
   parametr: PropTypes.string,
+  period: PropTypes.string,
+  genre: PropTypes.string,
 };

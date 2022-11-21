@@ -1,18 +1,18 @@
 import { Box } from 'Utils/Box';
-import * as SC from './TopMovies.Styled';
+import * as SC from './TopMoviesPeriod.styled';
 import PropTypes from 'prop-types';
 
 import { useSearchParams } from 'react-router-dom';
 
 const options = ['day', 'week'];
 
-export const Period = ({ onChangePeriod, period }) => {
+export const Period = ({ onChangePeriod, period, genre }) => {
   const [, setSearchParams] = useSearchParams();
 
-  const changeGenres = evt => {
+  const changePeriod = evt => {
     const choose = evt.target.value;
     onChangePeriod(choose);
-    setSearchParams({ period: choose });
+    setSearchParams({ genre: genre, period: choose });
   };
 
   return (
@@ -25,9 +25,9 @@ export const Period = ({ onChangePeriod, period }) => {
               name="geners"
               value={option}
               checked={period === `${option}` ? true : false}
-              onChange={changeGenres}
+              onChange={changePeriod}
             />
-            {option}
+            per {option}
           </SC.OptionText>
         ))}
       </Box>
@@ -38,4 +38,5 @@ export const Period = ({ onChangePeriod, period }) => {
 Period.prototype = {
   onChangePeriod: PropTypes.func,
   period: PropTypes.string,
+  genre: PropTypes.string,
 };
