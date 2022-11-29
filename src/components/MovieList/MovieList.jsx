@@ -15,6 +15,7 @@ export const MovieList = ({ list }) => {
             state={{ from: location }}
           >
             <SC.ItemImg
+              loading="lazy"
               src={
                 poster_path
                   ? `https://image.tmdb.org/t/p/original/${poster_path}`

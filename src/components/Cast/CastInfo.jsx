@@ -9,6 +9,7 @@ export const CastInfo = ({ castInfo }) => {
         <SC.CastListItem key={credit_id}>
           <SC.InnerWrap>
             <SC.ItemImg
+              loading="lazy"
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/original/${profile_path}`

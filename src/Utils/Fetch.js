@@ -65,14 +65,12 @@ export const fetchTrailers = async id => {
   return response;
 };
 
-// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 export const fetchByGenre = async (genre, page) => {
   const searchParams = new URLSearchParams({
     api_key: API_KEY,
     page: page,
     with_genres: genre,
   });
-
   const url = `https://api.themoviedb.org/3/discover/movie?${searchParams}`;
   const response = await axios.get(url);
 
