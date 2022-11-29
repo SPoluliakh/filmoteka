@@ -33,35 +33,39 @@ export const MovieCard = ({
     setIsInFavorite(isInFavorite);
   };
   return (
-    <SC.CardWrap>
-      <SC.CardImg
-        src={
-          poster_path
-            ? `https://image.tmdb.org/t/p/original/${poster_path}`
-            : NoImg
-        }
-        alt={title}
-        style={{ width: '300px' }}
-      />
-      <div>
-        <SC.CardTitle>
-          {title} {`(${release_date.slice(0, 4)})`}
-        </SC.CardTitle>
-        <SC.CardSubTitle>Rating: </SC.CardSubTitle>
-        <SC.CardText>{Math.round(popularity * 10)}%</SC.CardText>
-        <SC.CardSubTitle>Overview: </SC.CardSubTitle>
-        <SC.CardText>{overview}</SC.CardText>
-        <SC.CardSubTitle>Genres: </SC.CardSubTitle>
-        <SC.CardList>
-          {genres.map(({ name }) => (
-            <li key={name}> {name} </li>
-          ))}
-        </SC.CardList>
-        <SC.AddButton type="button" onClick={AddToFavotite}>
-          {isInFavorite ? 'Remove from Favorite' : 'Add to Favorite'}
-        </SC.AddButton>
-      </div>
-    </SC.CardWrap>
+    <div className="container">
+      <section>
+        <SC.CardWrap>
+          <SC.CardImg
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/original/${poster_path}`
+                : NoImg
+            }
+            alt={title}
+            style={{ width: '300px' }}
+          />
+          <div>
+            <SC.CardTitle>
+              {title} {`(${release_date.slice(0, 4)})`}
+            </SC.CardTitle>
+            <SC.CardSubTitle>Rating: </SC.CardSubTitle>
+            <SC.CardText>{Math.round(popularity * 10)}%</SC.CardText>
+            <SC.CardSubTitle>Overview: </SC.CardSubTitle>
+            <SC.CardText>{overview}</SC.CardText>
+            <SC.CardSubTitle>Genres: </SC.CardSubTitle>
+            <SC.CardList>
+              {genres.map(({ name }) => (
+                <li key={name}> {name} </li>
+              ))}
+            </SC.CardList>
+            <SC.AddButton type="button" onClick={AddToFavotite}>
+              {isInFavorite ? 'Remove from Favorite' : 'Add to Favorite'}
+            </SC.AddButton>
+          </div>
+        </SC.CardWrap>
+      </section>
+    </div>
   );
 };
 

@@ -7,6 +7,7 @@ export const MovieList = styled.ul`
   margin-left: -${p => p.theme.space[3]}px;
   margin-top: -${p => p.theme.space[3]}px;
   padding: ${p => p.theme.space[0]}px;
+  justify-content: center;
 `;
 
 export const ListItem = styled.li`

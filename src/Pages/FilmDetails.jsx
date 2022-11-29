@@ -40,23 +40,27 @@ export const FilmDetails = () => {
       {loader === 'pending' && <Spiner />}
       {loader === 'resolve' && (
         <Box as="main" pt={6}>
-          <LinkTo path={backLocation.current}> Go back </LinkTo>
-          <MovieCard
-            title={title}
-            popularity={vote_average}
-            overview={overview}
-            genres={genres}
-            poster_path={poster_path}
-            filmDetails={filmDetails}
-            release_date={release_date}
-          />
-          <LinkTo path="cast"> Cast </LinkTo>
-          <LinkTo path="reviews"> Reviews </LinkTo>
-          <LinkTo path="trailers"> Trailers </LinkTo>
+          <div className="container">
+            <section>
+              <LinkTo path={backLocation.current}> Go back </LinkTo>
+              <MovieCard
+                title={title}
+                popularity={vote_average}
+                overview={overview}
+                genres={genres}
+                poster_path={poster_path}
+                filmDetails={filmDetails}
+                release_date={release_date}
+              />
+              <LinkTo path="cast"> Cast </LinkTo>
+              <LinkTo path="reviews"> Reviews </LinkTo>
+              <LinkTo path="trailers"> Trailers </LinkTo>
 
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
+              <Suspense fallback={null}>
+                <Outlet />
+              </Suspense>
+            </section>
+          </div>
         </Box>
       )}
 
