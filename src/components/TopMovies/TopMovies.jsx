@@ -14,19 +14,23 @@ export const TopMovies = ({
 }) => {
   return (
     <Box as="main" pt={5}>
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <SC.MainTitle> TOP MOVIES </SC.MainTitle>
-        {genre === '1' && (
-          <Period
-            onChangePeriod={onChangePeriod}
-            period={period}
-            genre={genre}
-          />
-        )}
-      </Box>
+      <div className="container">
+        <section>
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <SC.MainTitle> TOP MOVIES </SC.MainTitle>
+            {genre === '1' && (
+              <Period
+                onChangePeriod={onChangePeriod}
+                period={period}
+                genre={genre}
+              />
+            )}
+          </Box>
 
-      <Genre genre={genre} onChangeGenre={onChangeGenre} period={period} />
-      <MovieList list={list} />
+          <Genre genre={genre} onChangeGenre={onChangeGenre} period={period} />
+          <MovieList list={list} />
+        </section>
+      </div>
     </Box>
   );
 };

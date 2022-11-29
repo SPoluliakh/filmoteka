@@ -16,7 +16,13 @@ export const Genre = ({ genre, onChangeGenre, period }) => {
 
   return (
     <>
-      <Box as="form" display="flex" alignItems="center" justifyContent="center">
+      <Box
+        as="form"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        mb={3}
+      >
         <SC.GenreText htmlFor="genre">GENRE </SC.GenreText>
         <SC.GenreSelect
           id="genre"

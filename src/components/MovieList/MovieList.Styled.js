@@ -4,16 +4,16 @@ import { NavLink } from 'react-router-dom';
 export const MovieList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin-left: -${p => p.theme.space[2]}px;
-  margin-top: -${p => p.theme.space[2]}px;
+  margin-left: -${p => p.theme.space[3]}px;
+  margin-top: -${p => p.theme.space[3]}px;
   padding: ${p => p.theme.space[0]}px;
 `;
 
 export const ListItem = styled.li`
   position: relative;
-  flex-basis: calc(100% / 5 - ${p => p.theme.space[2]}px);
-  margin-left: ${p => p.theme.space[2]}px;
-  margin-top: ${p => p.theme.space[2]}px;
+  flex-basis: calc(100% / 4 - ${p => p.theme.space[3]}px);
+  margin-left: ${p => p.theme.space[3]}px;
+  margin-top: ${p => p.theme.space[3]}px;
   display: flex;
   flex-direction: column;
 
@@ -26,6 +26,7 @@ export const ListItem = styled.li`
 
 export const ItemImg = styled.img`
   width: 100%;
+
   object-fit: cover;
   border-top-left-radius: ${p => p.theme.radii.normal};
   border-top-right-radius: ${p => p.theme.radii.normal};
