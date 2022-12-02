@@ -1,6 +1,7 @@
-import NoImg from '../../components/NoImg/no-photo.png';
+import NoImg from '../../components/NoImg/no-photo-1.png';
 import * as SC from './CastInfo.styled';
 import PropTypes from 'prop-types';
+import { imgWidth } from 'Utils/imgWidth';
 
 export const CastInfo = ({ castInfo }) => {
   return (
@@ -12,7 +13,7 @@ export const CastInfo = ({ castInfo }) => {
               loading="lazy"
               src={
                 profile_path
-                  ? `https://image.tmdb.org/t/p/original/${profile_path}`
+                  ? `https://image.tmdb.org/t/p/w${imgWidth}/${profile_path}`
                   : NoImg
               }
               alt={name}

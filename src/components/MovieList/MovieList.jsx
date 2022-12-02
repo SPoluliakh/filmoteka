@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import * as SC from './MovieList.Styled';
 import NoImg from '../../components/NoImg/no-photo.png';
 import PropTypes from 'prop-types';
+import { imgWidth } from 'Utils/imgWidth';
 
 export const MovieList = ({ list }) => {
   const location = useLocation();
@@ -20,7 +21,7 @@ export const MovieList = ({ list }) => {
                   loading="lazy"
                   src={
                     poster_path
-                      ? `https://image.tmdb.org/t/p/original/${poster_path}`
+                      ? `https://image.tmdb.org/t/p/w${imgWidth}/${poster_path}`
                       : NoImg
                   }
                   alt={title}

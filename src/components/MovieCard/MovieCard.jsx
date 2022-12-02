@@ -47,7 +47,7 @@ export const MovieCard = ({
           />
           <div>
             <SC.CardTitle>
-              {title} {`(${release_date.slice(0, 4)})`}
+              {title} {release_date ? `(${release_date.slice(0, 4)})` : ''}
             </SC.CardTitle>
             <SC.CardSubTitle>Rating: </SC.CardSubTitle>
             <SC.CardText>{Math.round(popularity * 10)}%</SC.CardText>

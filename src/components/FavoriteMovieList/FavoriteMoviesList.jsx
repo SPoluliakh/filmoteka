@@ -2,9 +2,11 @@ import * as SC from './FavoriteMovieList.style';
 import PropTypes from 'prop-types';
 import NoImg from '../../components/NoImg/no-photo.png';
 import { useLocation } from 'react-router-dom';
+import { imgWidth } from 'Utils/imgWidth';
 
 export const FavoriteMovieList = ({ list }) => {
   const location = useLocation();
+
   return (
     <SC.MovieList>
       {list.map(data => (
@@ -13,7 +15,7 @@ export const FavoriteMovieList = ({ list }) => {
             <SC.ItemImg
               src={
                 data.data.poster_path
-                  ? `https://image.tmdb.org/t/p/original/${data.data.poster_path}`
+                  ? `https://image.tmdb.org/t/p/w${imgWidth}/${data.data.poster_path}`
                   : NoImg
               }
               alt={data.data.title}
