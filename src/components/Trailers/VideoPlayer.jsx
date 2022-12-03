@@ -9,7 +9,7 @@ export const VideoPlayer = ({ data }) => {
         <SC.VideoItems loading="lazy" key={id}>
           <Iframe
             title={name}
-            url={`https://www.youtube.com/embed/${key}`}
+            url={`https://www.youtube.com/embed/${key}?rel=0&showinfo=0&autoplay=1`}
             width="640px"
             height="320px"
           />
