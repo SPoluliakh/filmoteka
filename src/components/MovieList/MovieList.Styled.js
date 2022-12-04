@@ -18,10 +18,15 @@ export const ListItem = styled.li`
   display: flex;
   flex-direction: column;
 
-  transition: scale, 250ms, liner;
+ transition: box-shadow 250ms linear;
   :hover,
   :focus {
-    scale: 1.02;
+       box-shadow: 0 1px 4px red,
+        -23px 0 30px -23px  red,
+        23px 0 30px -23px  red,
+        0 0 40px  red inset;
+  }
+ 
   }
 `;
 
