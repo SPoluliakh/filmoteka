@@ -2,6 +2,7 @@
   list-style: none;
   display: flex;
   justify-content: center;
+  padding-left: 0;
 }
 
 .item.active .link {

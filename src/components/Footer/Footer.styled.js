@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Footer = styled.footer`
   border-top: 0.8px solid navajowhite;
   width: 100vw;
+  background-color: #ff000021;
 `;
 
 export const FooterContainer = styled.div`
@@ -10,14 +11,8 @@ export const FooterContainer = styled.div`
   padding-bottom: 10px;
 `;
 
-export const FooterInnerWrap = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
-
 export const FooterText = styled.p`
-  color: navajowhite;
+  color: ${p => p.theme.colors.navBcg};
   font-size: 16px;
   line-height: 1.17;
   font-style: normal;
@@ -35,7 +30,7 @@ export const FooterLink = styled.a`
   font-style: normal;
   font-weight: 400;
   cursor: pointer;
-  color: navajowhite;
+  color: ${p => p.theme.colors.navBcg};
   text-decoration: underline;
   transition: scale 250ms linear;
 
@@ -45,12 +40,12 @@ export const FooterLink = styled.a`
 `;
 
 export const FooterTextCertificateInfo = styled.p`
-  color: navajowhite;
+  color: ${p => p.theme.colors.navBcg};
   font-size: 10px;
   line-height: 1.17;
   font-style: normal;
   font-weight: 400;
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: ${p => p.theme.space[0]}px;
+  margin-bottom: ${p => p.theme.space[0]}px;
 `;

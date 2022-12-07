@@ -7,23 +7,17 @@ export const Footer = () => {
     <>
       <SC.Footer>
         <SC.FooterContainer>
-          <SC.FooterInnerWrap>
-            <Box display="flex" flexDirection="column" alignItems="flex-start">
-              <SC.FooterTextCertificateInfo>
-                TMDB logo to identify your use of the TMDB APIs.
-              </SC.FooterTextCertificateInfo>
-              <SC.FooterTextCertificateInfo>
-                "This product uses the TMDB API but is not endorsed or certified
-                by TMDB."
-              </SC.FooterTextCertificateInfo>
-            </Box>
+          <div>
             <Box display="flex" justifyContent="center" alignItems="center">
               <SC.FooterText>© 2022 | All Rights Reserved |</SC.FooterText>
               <SC.FooterLink href={SV} target="_blank">
                 About developer
               </SC.FooterLink>
             </Box>
-          </SC.FooterInnerWrap>
+            <SC.FooterTextCertificateInfo>
+              This site use the TMDB APIs.
+            </SC.FooterTextCertificateInfo>
+          </div>
         </SC.FooterContainer>
       </SC.Footer>
     </>

@@ -15,7 +15,7 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
     <Box
       as="form"
       width="1098px"
-      pt={6}
+      pt="86px"
       pl={5}
       mb={3}
       display="flex"

@@ -13,7 +13,7 @@ export const TopMovies = ({
   onChangeGenre,
 }) => {
   return (
-    <Box as="main" pt={5}>
+    <Box as="main" pt="94px">
       <Box display="flex" justifyContent="center" alignItems="center">
         <SC.MainTitle> TOP MOVIES </SC.MainTitle>
         {genre === '1' && (

@@ -55,7 +55,6 @@ export const Movies = () => {
       {loader === 'pending' && <Spiner />}
       {loader === 'resolve' && movieList?.data.results.length > 0 && (
         <>
-          {' '}
           <MovieList list={movieList.data.results} />
           <PaginatedItems
             parametr={parametr}

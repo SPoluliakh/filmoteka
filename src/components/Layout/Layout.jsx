@@ -6,19 +6,13 @@ import { Footer } from 'components/Footer/Footer';
 export const Layout = () => {
   return (
     <>
-      <Box
-        p="0 15px"
-        minHeight="calc(100vh - 74px)"
-        display="flex"
-        flexDirection="column"
-      >
-        <AppBar />
-        <Box flex="1 1 auto">
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
-        </Box>
+      <AppBar />
+      <Box flex="1 1 auto" className="content">
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </Box>
+
       <Footer />
     </>
   );

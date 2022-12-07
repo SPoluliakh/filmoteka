@@ -9,6 +9,7 @@ export const AppBar = () => {
   return (
     <SC.Header>
       <SC.Nav>
+        <SC.Logo to="/">TMDB</SC.Logo>
         {navItems.map(({ href, text }) => (
           <SC.NavItem key={href} to={href}>
             {text}

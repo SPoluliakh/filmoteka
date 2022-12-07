@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const MovieList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin-left: -${p => p.theme.space[3]}px;
+  margin-right: -${p => p.theme.space[3]}px;
   margin-top: -${p => p.theme.space[3]}px;
   padding: ${p => p.theme.space[0]}px;
   justify-content: center;
@@ -13,7 +13,7 @@ export const MovieList = styled.ul`
 export const ListItem = styled.li`
   position: relative;
   flex-basis: calc(100% / 4 - ${p => p.theme.space[3]}px);
-  margin-left: ${p => p.theme.space[3]}px;
+  margin-right: ${p => p.theme.space[3]}px;
   margin-top: ${p => p.theme.space[3]}px;
   display: flex;
   flex-direction: column;
@@ -32,6 +32,7 @@ export const ListItem = styled.li`
 
 export const ItemImg = styled.img`
   width: 100%;
+  height: 530px;
 
   object-fit: cover;
   border-top-left-radius: ${p => p.theme.radii.normal};
@@ -41,13 +42,12 @@ export const ItemImg = styled.img`
 export const ItemTitle = styled.h2`
   border-bottom-left-radius: ${p => p.theme.radii.normal};
   border-bottom-right-radius: ${p => p.theme.radii.normal};
-  padding: ${p => p.theme.space[2]}px;
-  background-color: ${p => p.theme.colors.background};
+  padding: ${p => p.theme.space[3]}px;
+
   margin: ${p => p.theme.space[0]}px;
   font-size: ${p => p.theme.fontSizes.s}px;
   text-decoration: none;
   color: ${p => p.theme.colors.primary};
-
   flex-grow: 1;
 `;
 

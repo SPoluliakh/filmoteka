@@ -1,12 +1,10 @@
 body {
   margin: 0;
   background-color: black;
-  display: flex;
 }
 
-#root {
-  flex-direction: column;
-  min-height: 1005%;
+.content {
+  min-height: calc(100vh - 84px);
 }
 
 img {
@@ -22,8 +20,4 @@ img {
     padding: 0 32px;
     width: 1280px;
   }
-}
-
-main {
-  min-height: calc(100vh - 293px);
 }

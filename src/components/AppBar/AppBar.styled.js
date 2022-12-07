@@ -38,4 +38,14 @@ export const Header = styled.header`
 
 export const Nav = styled.nav`
   padding-left: ${p => p.theme.space[5]}px;
+  display: flex;
+  align-items: center;
+`;
+
+export const Logo = styled(NavLink)`
+  padding-right: ${p => p.theme.space[5]}px;
+  color: ${p => p.theme.colors.logoColor};
+  font-size: ${p => p.theme.fontSizes.ml}px;
+  text-decoration: none;
+  text-shadow: ${p => p.theme.shadows.textShadow};
 `;

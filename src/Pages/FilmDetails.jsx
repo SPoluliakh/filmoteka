@@ -41,7 +41,7 @@ export const FilmDetails = () => {
       {loader === 'resolve' && (
         <Box as="main" pt={6}>
           <div className="container">
-            <section>
+            <Box as="section" pt="26px">
               <LinkTo path={backLocation.current}> Go back </LinkTo>
               <MovieCard
                 title={title}
@@ -59,7 +59,7 @@ export const FilmDetails = () => {
               <Suspense fallback={null}>
                 <Outlet />
               </Suspense>
-            </section>
+            </Box>
           </div>
         </Box>
       )}

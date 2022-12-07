@@ -22,13 +22,7 @@ export const FormButton = styled.button`
   color: ${p => p.theme.colors.headerBcg};
 
   position: absolute;
-  top: ${p => {
-    if (p.type === 'submit') {
-      return '82px';
-    } else {
-      return '82px';
-    }
-  }};
+  top: ${() => '96px'};
   left: ${p => {
     if (p.type === 'submit') {
       return '70px';
@@ -39,4 +33,9 @@ export const FormButton = styled.button`
       return '780px';
     }
   }};
+
+  transition: scale 250ms linear;
+  :hover {
+    scale: 1.2;
+  }
 `;

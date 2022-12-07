@@ -33,6 +33,7 @@ export const theme = Object.freeze({
     headerBcg: 'brown',
     description: 'antiquewhite',
     navBcg: 'navajowhite',
+    logoColor: 'black',
   },
   radii: {
     none: '0',

@@ -1,6 +1,7 @@
 import ReactPaginate from 'react-paginate';
 import './Pagination.css';
 import PropTypes from 'prop-types';
+import { Box } from 'Utils/Box';
 
 function PaginatedItems({
   setPageNumber,
@@ -24,7 +25,7 @@ function PaginatedItems({
   };
 
   return (
-    <>
+    <Box display="flex" justifyContent="center">
       <ReactPaginate
         pageCount={totalPages}
         forcePage={currentPage}
@@ -46,7 +47,7 @@ function PaginatedItems({
         nextClassName="item"
         nextLinkClassName="link"
       />
-    </>
+    </Box>
   );
 }
 
