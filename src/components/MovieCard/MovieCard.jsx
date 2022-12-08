@@ -47,12 +47,15 @@ export const MovieCard = ({
           />
           <div>
             <SC.CardTitle>
-              {title} {release_date ? `(${release_date.slice(0, 4)})` : ''}
+              {title}{' '}
+              {release_date
+                ? `(${release_date.slice(0, 4)})`
+                : 'no reliase data ifo'}
             </SC.CardTitle>
             <SC.CardSubTitle>Rating: </SC.CardSubTitle>
             <SC.CardText>{Math.round(popularity * 10)}%</SC.CardText>
             <SC.CardSubTitle>Overview: </SC.CardSubTitle>
-            <SC.CardText>{overview}</SC.CardText>
+            <SC.CardText>{overview ? overview : 'No info'}</SC.CardText>
             <SC.CardSubTitle>Genres: </SC.CardSubTitle>
             <SC.CardList>
               {genres.map(({ name }) => (

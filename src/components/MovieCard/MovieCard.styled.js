@@ -4,7 +4,7 @@ export const CardWrap = styled.div`
   padding-left: ${p => p.theme.space[7]}px;
   padding-right: ${p => p.theme.space[7]}px;
   display: flex;
-  justify-content: center;
+
   align-items: start;
   margin-bottom: ${p => p.theme.space[3]}px;
 `;

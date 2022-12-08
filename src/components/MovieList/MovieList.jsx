@@ -11,27 +11,33 @@ export const MovieList = ({ list }) => {
     <div className="container">
       <section>
         <SC.MovieList>
-          {list.map(({ id, title, poster_path, vote_average }) => (
-            <SC.ListItem key={id}>
-              <SC.Link
-                to={location.pathname === '/' ? `movies/${id}` : `${id}`}
-                state={{ from: location }}
-              >
-                <SC.ItemImg
-                  loading="lazy"
-                  src={
-                    poster_path
-                      ? `https://image.tmdb.org/t/p/w${imgWidth}/${poster_path}`
-                      : NoImg
-                  }
-                  alt={title}
-                />
-
-                <SC.ItemTitle>{title}</SC.ItemTitle>
-              </SC.Link>
-              <SC.Rating>{vote_average.toFixed(2)}</SC.Rating>
-            </SC.ListItem>
-          ))}
+          {list.map(
+            ({ id, title, poster_path, vote_average, release_date }) => (
+              <SC.ListItem key={id}>
+                <SC.Link
+                  to={location.pathname === '/' ? `movies/${id}` : `${id}`}
+                  state={{ from: location }}
+                >
+                  <SC.ItemImg
+                    loading="lazy"
+                    src={
+                      poster_path
+                        ? `https://image.tmdb.org/t/p/w${imgWidth}/${poster_path}`
+                        : NoImg
+                    }
+                    alt={title}
+                  />
+                  <SC.ItemTitle>
+                    {title} |
+                    {release_date
+                      ? release_date.slice(0, 4)
+                      : 'no reliase data ifo'}
+                  </SC.ItemTitle>
+                </SC.Link>
+                <SC.Rating>{vote_average.toFixed(2)}</SC.Rating>
+              </SC.ListItem>
+            )
+          )}
         </SC.MovieList>
       </section>
     </div>

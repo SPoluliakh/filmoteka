@@ -43,6 +43,7 @@ export const ItemTitle = styled.h2`
   border-bottom-left-radius: ${p => p.theme.radii.normal};
   border-bottom-right-radius: ${p => p.theme.radii.normal};
   padding: ${p => p.theme.space[3]}px;
+  padding-bottom: ${p => p.theme.space[4]}px;
 
   margin: ${p => p.theme.space[0]}px;
   font-size: ${p => p.theme.fontSizes.s}px;

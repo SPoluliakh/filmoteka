@@ -22,10 +22,18 @@ function PaginatedItems({
           period: period,
           page: event.selected + 1,
         });
+    windowScroll();
+  };
+
+  const windowScroll = () => {
+    window.scrollBy({
+      top: -10000,
+      behavior: 'smooth',
+    });
   };
 
   return (
-    <Box display="flex" justifyContent="center">
+    <Box display="flex" justifyContent="center" mb={4}>
       <ReactPaginate
         pageCount={totalPages}
         forcePage={currentPage}
