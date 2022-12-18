@@ -19,6 +19,6 @@ export const VideoPlayer = ({ data }) => {
   );
 };
 
-Iframe.prototype = {
-  data: PropTypes.array,
+Iframe.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.string),
 };

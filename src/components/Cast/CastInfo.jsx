@@ -29,6 +29,13 @@ export const CastInfo = ({ castInfo }) => {
   );
 };
 
-CastInfo.prototype = {
-  castInfo: PropTypes.array,
+CastInfo.propTypes = {
+  castInfo: PropTypes.arrayOf(
+    PropTypes.shape({
+      credit_id: PropTypes.string,
+      name: PropTypes.string,
+      profile_path: PropTypes.string,
+      character: PropTypes.string,
+    })
+  ),
 };

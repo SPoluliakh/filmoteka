@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { setLocalStorage, getLocalStorage } from 'Utils/LocalStorage';
 import NoImg from '../../components/NoImg/no-photo.png';
 import * as SC from './MovieCard.styled';
 import PropTypes from 'prop-types';
 
+const favorite = 'myFilms';
 export const MovieCard = ({
   genres,
   overview,
@@ -14,12 +15,11 @@ export const MovieCard = ({
   filmDetails,
   release_date,
 }) => {
-  const favorite = useRef('myFilms');
   const { filmId } = useParams();
   const [isInFavorite, setIsInFavorite] = useState(false);
 
   useEffect(() => {
-    const savedMovies = getLocalStorage(favorite.current);
+    const savedMovies = getLocalStorage(favorite);
     if (
       savedMovies &&
       savedMovies.some(({ data }) => data.id === Number(filmId))
@@ -29,7 +29,7 @@ export const MovieCard = ({
   }, [filmId]);
 
   const AddToFavotite = () => {
-    const isInFavorite = setLocalStorage(favorite.current, filmDetails);
+    const isInFavorite = setLocalStorage(favorite, filmDetails);
     setIsInFavorite(isInFavorite);
   };
   return (
@@ -73,10 +73,16 @@ export const MovieCard = ({
 };
 
 MovieCard.propTypes = {
-  genres: PropTypes.array,
+  genres: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    })
+  ),
   overview: PropTypes.string,
   popularity: PropTypes.number,
   title: PropTypes.string,
   poster_path: PropTypes.string,
   filmDetails: PropTypes.object,
+  release_date: PropTypes.string,
 };

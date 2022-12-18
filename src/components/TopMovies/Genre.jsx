@@ -41,7 +41,7 @@ export const Genre = ({ genre, onChangeGenre, period }) => {
   );
 };
 
-Genre.prototype = {
+Genre.propTypes = {
   onChangeGenre: PropTypes.func,
   period: PropTypes.string,
   genre: PropTypes.string,

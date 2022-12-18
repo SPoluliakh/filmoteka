@@ -44,6 +44,14 @@ export const MovieList = ({ list }) => {
   );
 };
 
-MovieList.prototype = {
-  list: PropTypes.array,
+MovieList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      poster_path: PropTypes.string,
+      vote_average: PropTypes.number,
+      release_date: PropTypes.string,
+    })
+  ),
 };

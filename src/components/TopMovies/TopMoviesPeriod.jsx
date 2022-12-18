@@ -35,7 +35,7 @@ export const Period = ({ onChangePeriod, period, genre }) => {
   );
 };
 
-Period.prototype = {
+Period.propTypes = {
   onChangePeriod: PropTypes.func,
   period: PropTypes.string,
   genre: PropTypes.string,

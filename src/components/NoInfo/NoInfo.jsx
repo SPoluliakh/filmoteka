@@ -15,6 +15,6 @@ export const NoInfoText = ({ children }) => {
   );
 };
 
-NoInfoText.prototype = {
+NoInfoText.propTypes = {
   children: PropTypes.node,
 };

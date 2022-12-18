@@ -31,6 +31,18 @@ export const TopMovies = ({
   );
 };
 
-TopMovies.prototype = {
-  list: PropTypes.array,
+TopMovies.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      poster_path: PropTypes.string,
+      vote_average: PropTypes.number,
+      release_date: PropTypes.string,
+    })
+  ),
+  onChangePeriod: PropTypes.func,
+  period: PropTypes.string,
+  genre: PropTypes.string,
+  onChangeGenre: PropTypes.func,
 };

@@ -29,6 +29,14 @@ export const FavoriteMovieList = ({ list }) => {
   );
 };
 
-FavoriteMovieList.prototype = {
-  list: PropTypes.array,
+FavoriteMovieList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      poster_path: PropTypes.string,
+      vote_average: PropTypes.number,
+      release_date: PropTypes.string,
+    })
+  ),
 };
