@@ -4,6 +4,7 @@ export const Footer = styled.footer`
   border-top: 0.8px solid navajowhite;
   width: 100vw;
   background-color: #ff000021;
+  margin-top: 25px;
 `;
 
 export const FooterContainer = styled.div`

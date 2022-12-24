@@ -4,7 +4,7 @@ body {
 }
 
 .content {
-  min-height: calc(100vh - 84px);
+  min-height: calc(100vh - 112px);
 }
 
 img {

@@ -10,8 +10,9 @@ export const VideoPlayer = ({ data }) => {
           <Iframe
             title={name}
             url={`https://www.youtube.com/embed/${key}?rel=0&showinfo=0&autoplay=1`}
-            width="640px"
+            width="100%"
             height="320px"
+            overflow="cover"
           />
         </SC.VideoItems>
       ))}

@@ -7,7 +7,7 @@ export const Layout = () => {
   return (
     <>
       <AppBar />
-      <Box flex="1 1 auto" className="content">
+      <Box className="content">
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>

@@ -6,12 +6,12 @@ export const VideoList = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-right: -15px;
-  margin-bottom: -15px;
+  margin-right: -25px;
+  margin-bottom: -25px;
 `;
 
 export const VideoItems = styled.li`
-  flex-basic: calc(100% / 2 - 15px);
-  margin-right: 15px;
-  margin-bottom: 15px;
+  flex-basis: calc(100% / 2 - 25px);
+  margin-right: 25px;
+  margin-bottom: 25px;
 `;
