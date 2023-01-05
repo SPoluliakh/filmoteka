@@ -56,7 +56,7 @@ export const FilmDetails = () => {
               <LinkTo path="reviews"> Reviews </LinkTo>
               <LinkTo path="trailers"> Trailers </LinkTo>
 
-              <Suspense fallback={null}>
+              <Suspense fallback={<Spiner />}>
                 <Outlet />
               </Suspense>
             </Box>
