@@ -11,6 +11,16 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
     inputRef.current.focus();
   };
 
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    onSubmit(value);
+  };
+
+  const handleChange = evt => {
+    onChange(evt.target.value);
+  };
+
+  console.log('ddddd');
   return (
     <Box
       as="form"
@@ -20,10 +30,7 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
       mb={3}
       display="flex"
       position="relative"
-      onSubmit={evt => {
-        evt.preventDefault();
-        onSubmit(value);
-      }}
+      onSubmit={handleSubmit}
       autocomplete="on"
     >
       <SC.FormButton type="submit">
@@ -32,12 +39,12 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
       <SC.FormInput
         value={value}
         type="text"
-        onChange={evt => onChange(evt.target.value)}
+        onChange={handleChange}
         placeholder="Enter movie`s name"
         ref={inputRef}
       />
 
-      <SC.FormButton type="button" onClick={() => onInputFocus()}>
+      <SC.FormButton type="button" onClick={onInputFocus}>
         <BsXLg size="18" />
       </SC.FormButton>
     </Box>
