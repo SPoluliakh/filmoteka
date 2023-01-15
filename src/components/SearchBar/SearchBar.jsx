@@ -20,7 +20,6 @@ export const SearchBar = ({ onSubmit, value, onChange, clearInput }) => {
     onChange(evt.target.value);
   };
 
-  console.log('ddddd');
   return (
     <Box
       as="form"
