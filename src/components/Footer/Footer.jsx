@@ -1,5 +1,5 @@
 import * as SC from './Footer.styled';
-import SV from '../../Utils/Sergii_Poluliakh_frontend developer.pdf';
+import SV from '../../Utils/Sergii_Poluliakh_junior frontend developer.pdf';
 import { Box } from 'Utils/Box';
 
 export const Footer = () => {
